@@ -6,13 +6,10 @@ const port = 5000;
 
 app.use(cors());
 app.use(express.json());
-
-const apikey = process.env.ApiKey; 
+const apiKey = process.env.API_KEY;
 app.get("/api/data", async (req, res) => {
   try {
-    const response = await axios.get(
-      `https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=${apikey}`
-    );
+    const response = await axios.get(`https://gnews.io/api/v4/search?q=example&apikey=${apiKey}`);
     res.json(response.data); 
   } catch (error) {
     console.error('Error fetching data from API:', error);
