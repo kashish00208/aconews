@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useEffect, useState } from 'react';
 
 function HomePage() {
@@ -30,9 +29,8 @@ function HomePage() {
 
   return (
     <div>
-      
-      <h1>Data from Backend:</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h2>Stay Updated with Latest Insights</h2>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </div>
   );
 }
