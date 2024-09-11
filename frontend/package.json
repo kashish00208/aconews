@@ -5,12 +5,9 @@
   "type": "module",
   "homepage": "https://github.com/kashish00208/aconews/tree/main/frontend",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^6.1.1",
