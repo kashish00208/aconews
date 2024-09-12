@@ -22,7 +22,9 @@ function HomePage() {
     };
 
     fetchData();
-    console.log(data)
+    console.log(data);
+    const article = data.articles;
+    console.log(article);
   }, []);
 
   if (loading) return <div>Loading...</div>;
@@ -36,35 +38,10 @@ function HomePage() {
           Stay Updated with Latest Insights
         </h2>
       </div>
-
-      <div className="h-2/3 flex">
-        {/* <!-- Section 1 --> */}
-        <div className="w-1/2 flex flex-col">
-          <div className="flex-1 text-white flex items-center justify-center">
-            <img src="" alt="" />
-          </div>
-          <div className="flex-1 text-white flex items-center justify-center">
-            2
-          </div>
-        </div>
-
-        {/* <!-- Section 2 --> */}
-        <div className="w-1/2 flex flex-col">
-          <div className="flex-1 text-white flex items-center justify-center">
-            3
-          </div>
-          <div className="flex-1 flex">
-            <div className="w-1/2 text-white flex items-center justify-center">
-              4
-            </div>
-            <div className="w-1/2 text-whiteflex items-center justify-center">
-              5
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      {data && data.articles && (
+        <>
+        </>
+      )}
     </div>
   );
 }
