@@ -38,10 +38,7 @@ function HomePage() {
           Stay Updated with Latest Insights
         </h2>
       </div>
-      {data && data.articles && (
-        <>
-        </>
-      )}
+      
     </div>
   );
 }
