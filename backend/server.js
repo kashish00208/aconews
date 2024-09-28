@@ -5,6 +5,7 @@ const { API_KEY } = require("./config");
 const app = express();
 const port = 5000;
 
+
 app.use(cors());
 app.use(express.json());
 app.get("/api/data", async (req, res) => {

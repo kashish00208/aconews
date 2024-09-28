@@ -1,2 +1,0 @@
-const mongooose = require('mongoose');
-
