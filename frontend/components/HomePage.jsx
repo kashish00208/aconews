@@ -10,11 +10,13 @@ function HomePage() {
       try {
         const response = await fetch("http://localhost:5000/api/data");
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error(`Network response was not ok: ${response.statusText}`);
         }
         const results = await response.json();
         setData(results);
-        console.log(results)
+        console.log(results);
+        const articles = results.articles;
+        console.log(articles)
       } catch (error) {
         setError(error.message);
       } finally {
@@ -24,14 +26,16 @@ function HomePage() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+  }, [data]);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <>
-    {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
-    
   );
 }
 
