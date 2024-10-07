@@ -10,7 +10,9 @@ function HomePage() {
       try {
         const response = await fetch("http://localhost:5000/api/data");
         if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+          throw new Error(
+            `Network response was not ok: ${response.statusText}`
+          );
         }
         const results = await response.json();
         setData(results);
@@ -29,22 +31,24 @@ function HomePage() {
 
   return (
     <>
-    <div className="text-center text-black text-3xl font-bold">Trending</div>
-    <div>
-      
-    </div>
-    <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
-      {data.articles.map((article, index) => (
-        <div key={index} className="border border-black rounded">
-          <h2>{article.title}</h2>
-          <img src={article.image} alt={article.title} className="w-20 h-32" />
-          <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
-        </div>
-      ))}
-    </div>
+      <div className="text-center text-black text-3xl font-bold">Trending</div>
+      <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
+        {data.articles.map((article, index) => (
+          <div key={index} className="drop-shadow-xl">
+            <img
+              src={article.image}
+              alt={article.title}
+              className=" w-full h-auto rounded-lg"
+            />
+            <h2 className="text-sm font-bold">{article.title}</h2>
+            <a href={article.url} target="_blank" rel="noopener noreferrer">
+              Read more
+            </a>
+          </div>
+        ))}
+      </div>
     </>
   );
-  
 }
 
 export default HomePage;
