@@ -31,7 +31,15 @@ function HomePage() {
 
   return (
     <>
-      <div className="text-center text-black text-3xl font-bold">Trending</div>
+      <div className="text-center text-black text-3xl font-bold p-5">
+        Trending
+      </div>
+      {data && data.articles && (
+        <div className="px-32 py-10 flex ">
+          <img src={data.articles[0].image} className="w-80 h-60 rounded-xl" alt={data.articles[0].title} />
+          <h2 className="font-bold text-2xl p-10">{data.articles[0].title}</h2>
+        </div>
+      )}
       <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
         {data.articles.map((article, index) => (
           <div key={index} className="drop-shadow-xl">
