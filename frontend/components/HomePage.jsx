@@ -28,16 +28,23 @@ function HomePage() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="article-container">
+    <>
+    <div className="text-center text-black text-3xl font-bold">Trending</div>
+    <div>
+      
+    </div>
+    <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
       {data.articles.map((article, index) => (
-        <div key={index} className="border border-black m-10 p-10 rounded">
+        <div key={index} className="border border-black rounded">
           <h2>{article.title}</h2>
           <img src={article.image} alt={article.title} className="w-20 h-32" />
           <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
         </div>
       ))}
     </div>
+    </>
   );
+  
 }
 
 export default HomePage;
