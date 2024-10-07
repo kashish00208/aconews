@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function HomePage() {
-  const [data, setData] = useState();
+  const [data, setData] = useState({ articles: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -15,8 +15,6 @@ function HomePage() {
         const results = await response.json();
         setData(results);
         console.log(results);
-        const articles = results.articles;
-        console.log(articles)
       } catch (error) {
         setError(error.message);
       } finally {
@@ -26,16 +24,19 @@ function HomePage() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-  }, [data]);
-
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </>
+    <div className="article-container">
+      {data.articles.map((article, index) => (
+        <div key={index} className="border border-black m-10 p-10 rounded">
+          <h2>{article.title}</h2>
+          <img src={article.image} alt={article.title} className="w-20 h-32" />
+          <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+        </div>
+      ))}
+    </div>
   );
 }
 
