@@ -35,18 +35,32 @@ function HomePage() {
         Trending
       </div>
       {data && data.articles && (
-        <div className="px-32 py-10 flex ">
-          <img src={data.articles[0].image} className="w-80 h-60 rounded-xl" alt={data.articles[0].title} />
-          <h2 className="font-bold text-2xl p-10">{data.articles[0].title}</h2>
+        <div className="px-32  pb-12 flex shadow-lg pt-10">
+          <img
+            src={data.articles[0].image}
+            className="w-2/3 h-60 rounded-xl"
+            alt={data.articles[0].title}
+          />
+          <div className="p-5">
+            <h2 className="font-bold text-xl ">{data.articles[0].title}</h2>
+            <p className="pt-5">{data.articles[0].description}</p>
+            <a
+              href={data.articles[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </div>
         </div>
       )}
       <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
         {data.articles.map((article, index) => (
-          <div key={index} className="drop-shadow-xl">
+          <div key={index} className="shadow-lg">
             <img
               src={article.image}
               alt={article.title}
-              className=" w-full h-auto rounded-lg"
+              className=" w-72 h-52 rounded-lg"
             />
             <h2 className="text-sm font-bold">{article.title}</h2>
             <a href={article.url} target="_blank" rel="noopener noreferrer">
