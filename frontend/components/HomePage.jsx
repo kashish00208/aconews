@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import dotgrid from "../src/assets/dot-grid.svg";
 
 function HomePage() {
   const [data, setData] = useState({ articles: [] });
@@ -54,6 +55,7 @@ function HomePage() {
           </div>
         </div>
       )}
+
       <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
         {data.articles.map((article, index) => (
           <div key={index} className="shadow-lg">
