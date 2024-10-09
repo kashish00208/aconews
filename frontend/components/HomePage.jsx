@@ -32,44 +32,56 @@ function HomePage() {
 
   return (
     <>
-      <div className="text-center text-black text-3xl font-bold p-5">
-        Trending
-      </div>
-      {data && data.articles && (
-        <div className="px-32  pb-12 flex shadow-lg pt-10">
-          <img
-            src={data.articles[0].image}
-            className="w-2/3 h-60 rounded-xl"
-            alt={data.articles[0].title}
-          />
-          <div className="p-5">
-            <h2 className="font-bold text-xl ">{data.articles[0].title}</h2>
-            <p className="pt-5">{data.articles[0].description}</p>
-            <a
-              href={data.articles[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read more
-            </a>
-          </div>
+      <div  style={{
+          backgroundImage: `url(${dotgrid})`,
+          backgroundRepeat: "repeat",
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: "1",
+          position: "relative",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <div className="text-center text-black text-3xl font-bold p-5 " >
+          Trending
         </div>
-      )}
-
-      <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3">
-        {data.articles.map((article, index) => (
-          <div key={index} className="shadow-lg">
+        {data && data.articles && (
+          <div className="mx-32  mb-12 flex shadow-lg mt-10 bg-white" >
             <img
-              src={article.image}
-              alt={article.title}
-              className=" w-72 h-52 rounded-lg"
+              src={data.articles[0].image}
+              className="w-2/3 h-60 rounded-xl"
+              alt={data.articles[0].title}
             />
-            <h2 className="text-sm font-bold">{article.title}</h2>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              Read more
-            </a>
+            <div className="p-5">
+              <h2 className="font-bold text-xl ">{data.articles[0].title}</h2>
+              <p className="pt-5">{data.articles[0].description}</p>
+              <a
+                href={data.articles[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read more
+              </a>
+            </div>
           </div>
-        ))}
+        )}
+
+        <div className="article-container p-32 pt-8 grid gap-x-10 gap-y-10 grid-cols-3 m-5">
+          {data.articles.map((article, index) => (
+            <div key={index} className="shadow-lg bg-white">
+              <img
+                src={article.image}
+                alt={article.title}
+                className=" w-72 h-52 rounded-lg"
+              />
+              <h2 className="text-sm font-bold">{article.title}</h2>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

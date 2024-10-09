@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      'bg-img':'url("./assets/dot-grid.svg")',
+      
     },
   },
   plugins: [],
