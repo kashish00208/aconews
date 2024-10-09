@@ -32,15 +32,8 @@ function HomePage() {
 
   return (
     <>
-      <div  style={{
+      <div className="bg-repeat flex flex-col flex-grow relative w-full h-full"  style={{
           backgroundImage: `url(${dotgrid})`,
-          backgroundRepeat: "repeat",
-          display: "flex",
-          flexDirection: "column",
-          flexGrow: "1",
-          position: "relative",
-          width: "100%",
-          height: "100%",
         }}
       >
         <div className="text-center text-black text-3xl font-bold p-5 " >
